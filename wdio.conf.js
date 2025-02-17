@@ -51,7 +51,7 @@ exports.config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 10,
+  maxInstances: 1,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -62,8 +62,8 @@ exports.config = {
       // capabilities for local Appium web tests on an Android Emulator
 
       platformName: "Android",
-      "appium:platformVersion": "14",
-      "appium:deviceName": "98f21c31",
+      "appium:platformVersion": "11",
+      "appium:deviceName": "3d6f1d10",
       "appium:app": androidAppPath,
       "appium:automationName": "UIAutomator2",
       "appium:ensureWebviewsHavePages": "true",

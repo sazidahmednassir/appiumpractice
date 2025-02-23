@@ -1,34 +1,23 @@
+const addNote = require("../../screenobjects/android/addNote");
+
 describe("Add Note", () => {
   it("skip tutorial", async () => {
-    await $('//*[@text="SKIP"]').click();
-    await expect($('//*[@text="Add note"]')).toBeDisplayed();
+    await addNote.skipBtn.click();
+    await expect(addNote.addNoteText).toBeDisplayed();
   });
 
   it("add note", async () => {
-    await $('//*[@text="Add note"]').click();
-    await $('//*[@class="android.widget.LinearLayout"]').click();
-    await expect($('//*[@text="Editing"]')).toBeDisplayed();
+    await addNote.addNoteText.click();
+    await addNote.addTextOption.click();
+    await expect(addNote.editingText).toBeDisplayed();
 
-    await $(
-      '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_title"]'
-    ).addValue("Favorite Anime List");
-    await $(
-      '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_note"]'
-    ).addValue("One Punch\nAOT\nSakamoto");
+    await addNote.addNoteTitle.addValue("Favorite Anime List");
+    await addNote.addNoteContent.addValue("One Punch\nAOT\nSakamoto");
 
-    await driver.back();
-    await driver.back();
+    await addNote.saveNote();
 
-    await expect(
-      $(
-        '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_btn"]'
-      )
-    ).toBeDisplayed();
+    await expect(addNote.editBtn).toBeDisplayed();
 
-    await expect(
-      $(
-        '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/view_note"]'
-      )
-    ).toHaveText("One Punch\nAOT\nSakamoto");
+    await expect(addNote.viewNote).toHaveText("One Punch\nAOT\nSakamoto");
   });
 });

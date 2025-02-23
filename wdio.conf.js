@@ -1,7 +1,7 @@
 const projectPath = require("path");
 const androidAppPath = projectPath.join(
   process.cwd(),
-  "app/android/ApiDemos-debug.apk"
+  "app/android/ColorNote-Notepad.apk"
 );
 
 exports.config = {
@@ -67,6 +67,7 @@ exports.config = {
       "appium:app": androidAppPath,
       "appium:automationName": "UIAutomator2",
       "appium:ensureWebviewsHavePages": "true",
+      "appium:autoGrantPermissions": "true",
     },
   ],
 

@@ -6,6 +6,7 @@ describe("Add Note", () => {
     await expect(addNote.addNoteText).toBeDisplayed();
   });
 
+  //add note
   it("add note", async () => {
     await addNote.addNoteText.click();
     await addNote.addTextOption.click();
